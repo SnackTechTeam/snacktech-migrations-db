@@ -1,0 +1,18 @@
+name: CI CD Pipeline
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy:
+    runs-on: windows-2022
+
+    steps:
+    - name: Checkout Repository
+      uses: actions/checkout@v2
+
+    - name: Execute PowerShell Script
+      run: |
+        ./Migrations/PowerShell/ApplyMigrations.ps1 -Instance ${{ secrets.DB_INSTANCE }} -Port ${{ secrets.DB_PORT }} -DbName ${{ secrets.DB_NAME }} -UID ${{ secrets.DB_UID }} -Password ${{ secrets.DB_PASSWORD }}
