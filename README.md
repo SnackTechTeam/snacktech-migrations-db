@@ -9,7 +9,8 @@
 - [Sobre o Projeto](#sobre-o-projeto)  
 - [Objetivo](#objetivo)  
 - [Pré-requisitos](#pre-requisitos)  
-- [Estrutura do Repositório](#estrutura-do-repositorio)  
+- [Estrutura do Repositório](#estrutura-do-repositorio)
+- [Diagrama de Estrutura do Banco de Dados](#diagrama-de-estrutura-do-banco-de-dados)
 - [Tecnologias utilizadas](#tecnologias-utilizadas)  
 - [Configuração de Execução com GitHub Actions](#configuracao-de-execucao-com-github-actions)  
 - [Instalação e Execução Local (se necessário)](#instalacao-e-execucao-local)  
@@ -77,6 +78,17 @@ Aqui está a estrutura padrão do repositório:
 │
 └── README.md                     # Documentação do repositório
 ```
+
+---
+
+## 📊 Diagrama de Estrutura do Banco de Dados
+
+O diagrama a seguir representa as principais entidades e seus relacionamentos no banco de dados do projeto:
+
+![image](https://github.com/user-attachments/assets/7f495238-93c0-4521-9600-a7e8c6a1b832)
+
+
+Este diagrama ajuda a entender as tabelas e os relacionamentos configurados pelos scripts de migração.
 
 ---
 
