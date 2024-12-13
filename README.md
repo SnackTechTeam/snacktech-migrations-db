@@ -103,7 +103,7 @@ As tecnologias e recursos principais usados neste repositório incluem:
 
 ---
 
-## ⚙️ Configuração de Execução com GitHub Actions {#configuracao-de-execucao-com-github-actions}
+## ⚙️ Configuração de Execução com GitHub Actions
 
 Os workflows no GitHub Actions garantem que os scripts possam ser executados de forma segura após revisão manual.
 
