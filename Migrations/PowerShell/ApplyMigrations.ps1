@@ -17,6 +17,31 @@ $diretorioScript = $PSScriptRoot
 # Construir o caminho para o diretório "irmão" (no mesmo nível)
 $diretorioSql = Join-Path -Path (Split-Path -Path $diretorioScript -Parent) -ChildPath "NotApplied"
 
+# Connection string pointing to master database to check/create new database
+$MasterConnectionString = "Server=$Instance,$Port;Database=master;User=$UID;Password=$Password;Encrypt=True;TrustServerCertificate=True;Connection Timeout=30;"
+
+# Check if database exists
+$CheckDbQuery = "SELECT COUNT(*) as Count FROM sys.databases WHERE name = '$DbName'"
+try {
+    $result = Invoke-Sqlcmd -ConnectionString $MasterConnectionString -Query $CheckDbQuery -ErrorAction Stop
+    if ($result.Count -eq 0) {
+        Write-Host "Database $DbName does not exist. Creating..."
+        
+        # Create database
+        $CreateDbQuery = "CREATE DATABASE [$DbName]"
+        Invoke-Sqlcmd -ConnectionString $MasterConnectionString -Query $CreateDbQuery -ErrorAction Stop
+        Write-Host "Database $DbName created successfully."
+    }
+    else {
+        Write-Host "Database $DbName already exists."
+    }
+}
+catch {
+    Write-Host "Error checking/creating database: $_"
+    exit
+}
+
+
 # Verificando se o diretório "SqlScripts" existe
 if (Test-Path $diretorioSql) {
 

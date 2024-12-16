@@ -15,4 +15,4 @@ jobs:
 
     - name: Execute PowerShell Script
       run: |
-        ./Migrations/PowerShell/ApplyMigrations.ps1 -Instance ${{ secrets.DB_INSTANCE }} -Port ${{ secrets.DB_PORT }} -DbName ${{ secrets.DB_NAME }} -UID ${{ secrets.DB_UID }} -Password ${{ secrets.DB_PASSWORD }}
+        ./Migrations/PowerShell/ApplyMigrations.ps1 -Instance ${{ secrets.DB_INSTANCE }} -Port ${{ vars.DB_PORT }} -DbName ${{ vars.DB_NAME }} -UID ${{ secrets.DB_UID }} -Password ${{ secrets.DB_PASSWORD }}
